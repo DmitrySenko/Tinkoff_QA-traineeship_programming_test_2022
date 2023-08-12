@@ -1,0 +1,17 @@
+def nok(a, b):
+    a_lst = []
+    b_lst = []
+    d = max(a, b)
+    for i in range(d, 10 ** 9):
+        if i % a == 0 and i % b == 0:
+            return i
+
+
+n = int(input())
+lst = []
+dct = {}
+for i in range(1, n):
+    lst.append([i, n - i])
+for i in lst:
+    dct[nok(i[0], i[1])] = i
+print(*dct.get(min(dct.keys())))
