@@ -1,0 +1,16 @@
+currency_rate = input().split()
+purse = input().split()
+a = int(currency_rate[0])
+b = int(currency_rate[1])
+c = int(currency_rate[2])
+mn = max(a, b, c)
+comd_lst = []
+a1, b1, c1 = int(purse[0]), int(purse[1]), int(purse[2])
+summ = a1 * a + b1 * b + c1 * c
+for i in range(summ // mn + 2):
+    for j in range(summ // mn + 2):
+        for n in range(summ // mn + 2):
+            if i * a + j * b + n * c == summ:
+                if [i, j, n] not in comd_lst:
+                    comd_lst.append([i, j, n])
+print(len(comd_lst))
